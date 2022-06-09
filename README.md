@@ -1,0 +1,1 @@
+the program is a dictionari. and we have created a table dictionari.
