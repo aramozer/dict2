@@ -24,6 +24,18 @@ def save_dict(C):
     cur = C.cursor()
     cur.execute("COMMIT;")
     cur.close()
+def help_list():
+    print(list_of_inst)
+
+list_of_inst = ('''Hello and welcome to the dictionary, available commands:
+    add - New word
+    delete - delete a word
+    list - list all words
+    save - save the list
+    help - for list of commands
+    quit - quit the program''')
+
+print(list_of_inst)
 
 while True: ## REPL - Read Execute Program Loop
     cmd = input("Command: ")
@@ -36,6 +48,8 @@ while True: ## REPL - Read Execute Program Loop
     elif cmd == "delete":
         ID = input("  ID: ")
         delete_word(conn, ID)
+    elif cmd == "help":
+        help_list()
     elif cmd == "quit":
         save_dict(conn)
         exit()
