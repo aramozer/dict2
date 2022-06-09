@@ -35,9 +35,7 @@ def save_dict(C):
 def help_list():
     print(list_of_inst)
 
-
-def main():
-    list_of_inst = ('''Hello and welcome to the dictionary, available commands:
+list_of_inst = ('''Hello and welcome to the dictionary, available commands:
         add - New word
         delete - delete a word
         list - list all words
@@ -45,12 +43,15 @@ def main():
         help - for list of commands
         quit - quit the program''')
 
+def main():
+
     print(list_of_inst)
 
     while True: ## REPL - Read Execute Program Loop
         cmd = input("Command: ")
         if cmd == "list":
-            print(read_dict(conn))
+            for i, wd, trans in read_dict(conn):
+                print(f"{i}: {wd} - {trans}")
         elif cmd == "add":
             name = input("  Word: ")
             phone = input("  Translation: ")
@@ -66,3 +67,4 @@ def main():
             save_dict(conn)
             exit()
 main()
+
